@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625674569937466596, guid: 5e32edbe5a617b041b20f91b0f4a19f3, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 8028495194177757249, guid: 5e32edbe5a617b041b20f91b0f4a19f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
