@@ -1,3 +1,3 @@
-# Unity Assets, Models, and Structure
+# Assets
 
 ## Amir Colbert
