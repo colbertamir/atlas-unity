@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 10f; // Increase the speed for faster movement
     public float rotationSpeed = 90f; // Rotation speed for diagonal movement
     public float gravity = -20f;
-    public float jumpSpeed = 1f; // Jump speed
+    public float jumpSpeed = 15f; // Jump speed
 
     CharacterController characterController;
     Vector3 moveVelocity;
 
-    void Awake()
+    void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
@@ -24,26 +24,21 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical"); // Gets input from W/S or up/down arrow keys
 
         // Calculates the movement based on the input
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        movement = movement.normalized * speed * Time.deltaTime;
+        Vector3 move = new Vector3(moveHorizontal, 0, moveVertical);
 
-        // Rotate the movement vector according to the camera's forward direction
-        movement = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up) * movement;
-
-        // Check if the player is grounded and the Space button is pressed
-        if (characterController.isGrounded && Input.GetButtonDown("Jump"))
+        // Jump function
+        if (characterController.isGrounded && Input.GetButtonDown("Jump")) // Check if the player is grounded and jump button is pressed
         {
-            // Apply an upward velocity for jumping
-            moveVelocity.y = jumpSpeed;
+            moveVelocity.y = jumpSpeed; // Apply jump velocity directly to moveVelocity.y
         }
-
-        // Combine movement with jump velocity
-        moveVelocity = new Vector3(movement.x, moveVelocity.y, movement.z);
 
         // Apply gravity
         moveVelocity.y += gravity * Time.deltaTime;
 
-        // Move the player using CharacterController
-        characterController.Move(moveVelocity);
+        // Move the player horizontally using CharacterController
+        characterController.Move(move * speed * Time.deltaTime);
+
+        // Move the player vertically using CharacterController
+        characterController.Move(moveVelocity * Time.deltaTime);
     }
 }
