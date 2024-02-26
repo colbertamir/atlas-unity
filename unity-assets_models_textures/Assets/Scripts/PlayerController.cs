@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public float rotationSpeed = 90f; // Rotation speed for diagonal movement
     public float gravity = -20f;
-    public float jumpSpeed = 3f; // Increased jump speed
-    public float maxJumpHeight = 2f; // Maximum jump height
+    public float jumpSpeed = 1f; // Jump speed
 
     CharacterController characterController;
     Vector3 moveVelocity;
@@ -31,12 +30,11 @@ public class PlayerController : MonoBehaviour
         // Rotate the movement vector according to the camera's forward direction
         movement = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up) * movement;
 
-        // Apply jump functionality only when grounded
+        // Check if the player is grounded and the Space button is pressed
         if (characterController.isGrounded && Input.GetButtonDown("Jump"))
         {
-            // Limit jump height to prevent jumping off the screen
-            float jumpHeight = Mathf.Min(maxJumpHeight, jumpSpeed);
-            moveVelocity.y = jumpHeight;
+            // Apply an upward velocity for jumping
+            moveVelocity.y = jumpSpeed;
         }
 
         // Combine movement with jump velocity
