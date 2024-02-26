@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public float rotationSpeed = 90f; // Rotation speed for diagonal movement
     public float gravity = -20f;
-    public float jumpSpeed = 5f; // Increased jump speed
+    public float jumpSpeed = 3f; // Increased jump speed
     public float maxJumpHeight = 2f; // Maximum jump height
 
     CharacterController characterController;
