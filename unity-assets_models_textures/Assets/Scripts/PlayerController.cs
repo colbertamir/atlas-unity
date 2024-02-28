@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float gravity = -20f;
     public float jumpSpeed = 15f; // Jump speed
 
+    public Transform startPosition; // Start position of the player
+
     CharacterController characterController;
     Vector3 moveVelocity;
 
@@ -40,5 +42,14 @@ public class PlayerController : MonoBehaviour
 
         // Move the player vertically using CharacterController
         characterController.Move(moveVelocity * Time.deltaTime);
+
+        // Check if the player has fallen off the platform
+        if (transform.position.y < -30f) // Adjust the value as needed
+        {
+            // Reset player position to the start position
+            transform.position = startPosition.position;
+            // Reset player velocity
+            moveVelocity = Vector3.zero;
+        }
     }
 }

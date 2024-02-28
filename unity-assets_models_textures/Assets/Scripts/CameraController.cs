@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
     public float height = 2f; // Height offset of the camera from the player
     public float sensitivity = 2f; // Sensitivity of the camera rotation
 
+    public Transform startPosition; // Start position of the camera
+
     private Vector2 cursorMovement;
     private Vector3 offset;
 
@@ -27,5 +29,14 @@ public class CameraController : MonoBehaviour
 
         // Rotate the camera around the player based on cursor input
         transform.rotation = Quaternion.Euler(-cursorMovement.y, cursorMovement.x, 0f);
+
+        // Check if the camera has fallen off the platform
+        if (transform.position.y < -30f) // Adjust the value as needed
+        {
+            // Reset camera position to the start position
+            transform.position = startPosition.position;
+            // Reset camera rotation
+            transform.rotation = startPosition.rotation;
+        }
     }
 }
