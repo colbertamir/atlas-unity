@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10f; // Increase the speed for faster movement
@@ -10,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 15f; // Jump speed
 
     public Transform startPosition; // Start position of the player
+    public Animator animator; // Reference to the Animator component
 
     CharacterController characterController;
     Vector3 moveVelocity;
@@ -25,20 +25,38 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal"); // Gets input from A/D or left/right arrow keys
         float moveVertical = Input.GetAxis("Vertical"); // Gets input from W/S or up/down arrow keys
 
-        // Calculates the movement based on the input
-        Vector3 move = new Vector3(moveHorizontal, 0, moveVertical);
+        // Calculate player's movement direction
+        Vector3 moveDirection = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
 
         // Jump function
-        if (characterController.isGrounded && Input.GetButtonDown("Jump")) // Check if the player is grounded and jump button is pressed
+        bool grounded = characterController.isGrounded;
+        Debug.Log("Grounded: " + grounded);
+        if (grounded)
         {
-            moveVelocity.y = jumpSpeed; // Apply jump velocity directly to moveVelocity.y
+            // Calculate player's movement speed
+            float currentSpeed = moveDirection.magnitude * speed;
+
+            // Apply movement
+            characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
+
+            // Update animator parameter
+            animator.SetFloat("Speed", currentSpeed);
+
+            // Check if the character is grounded and the jump velocity is downward
+            if (moveVelocity.y < 0f)
+            {
+                moveVelocity.y = 0f; // Reset the vertical velocity
+            }
+
+            // Check for jump input
+            if (Input.GetButtonDown("Jump"))
+            {
+                moveVelocity.y = jumpSpeed; // Apply jump velocity
+            }
         }
 
         // Apply gravity
         moveVelocity.y += gravity * Time.deltaTime;
-
-        // Move the player horizontally using CharacterController
-        characterController.Move(move * speed * Time.deltaTime);
 
         // Move the player vertically using CharacterController
         characterController.Move(moveVelocity * Time.deltaTime);

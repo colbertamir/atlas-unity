@@ -3265,6 +3265,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!95 &1953269841 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3099900180719405508, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
+  m_PrefabInstance: {fileID: 4938158813384901738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027336260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,6 +3774,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3099900180719405508, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099900180719405508, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7022203044014136772, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3783,7 +3796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7040971248305713283, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 7040971248305713283, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3821,6 +3834,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 659165081}
+    - target: {fileID: 9077796124883279845, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1953269841}
     - target: {fileID: 9077796124883279845, guid: e963648a6e81cfb4492b993e033f2d4d, type: 3}
       propertyPath: startPosition
       value: 
