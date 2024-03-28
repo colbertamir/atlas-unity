@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     Vector3 moveVelocity;
 
+    bool isJumping = false; // Flag to track if the player is currently jumping
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -28,11 +30,19 @@ public class PlayerController : MonoBehaviour
         // Calculates the movement based on the input
         Vector3 move = new Vector3(moveHorizontal, 0, moveVertical);
 
+        // Check if the player is grounded
+        bool isGrounded = characterController.isGrounded;
+
         // Jump function
-        if (characterController.isGrounded && Input.GetButtonDown("Jump")) // Check if the player is grounded and jump button is pressed
+        if (isGrounded && Input.GetButtonDown("Jump")) // Check if the player is grounded and jump button is pressed
         {
             moveVelocity.y = jumpSpeed; // Apply jump velocity directly to moveVelocity.y
+            animator.SetBool("IsJumping", true); // Set IsJumping parameter to true
+            isJumping = true; // Set the jumping flag
         }
+
+        // Set IsJumping parameter based on jumping status
+        animator.SetBool("IsJumping", isJumping);
 
         // Update animator parameter for speed
         float currentSpeed = move.magnitude * speed;
@@ -47,6 +57,17 @@ public class PlayerController : MonoBehaviour
         // Move the player vertically using CharacterController
         characterController.Move(moveVelocity * Time.deltaTime);
 
+        // Check if the player has landed
+        if (isGrounded && moveVelocity.y < 0)
+        {
+            if (isJumping)
+            {
+                // Player has landed from jump, reset the jumping flag
+                isJumping = false;
+                // Trigger Idle animation
+                animator.SetBool("IsJumping", false);
+            }
+        }
         // Check if the player has fallen off the platform
         if (transform.position.y < -30f) // Adjust the value as needed
         {
