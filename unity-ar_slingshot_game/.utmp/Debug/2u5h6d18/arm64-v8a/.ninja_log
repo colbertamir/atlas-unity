@@ -1,0 +1,11 @@
+# ninja log v5
+130	2726	7412177832084703	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1326ef3f66e268e7
+15	4734	7412177860132459	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	d20928d44c999f43
+2746	4784	7412177850570154	C:/Users/colbe/atlas-unity/unity-ar_slingshot_game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2u5h6d18/obj/arm64-v8a/libswappywrapper.so	d1ea661b3b58599b
+26	5013	7412177860743099	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	c081d44dcaa30437
+49	5114	7412177864131138	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c19ca4eacffd2222
+2	5253	7412177864738407	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d8b54e76d5113566
+116	5295	7412177859571082	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	4db01983a74b6687
+35	5414	7412177860214270	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	f3375e080cf62da3
+61	5516	7412177858828674	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c6c27806a187f7ba
+5517	6007	7412177871579858	C:/Users/colbe/atlas-unity/unity-ar_slingshot_game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/2u5h6d18/obj/arm64-v8a/libgame.so	a982e17aa54a745d
