@@ -12,7 +12,7 @@ public class PlaneSelectionController : MonoBehaviour
     public Camera arCamera; // Reference to the AR Camera
 
     [Header("Controller Reference")]
-    public PlanePlacementController placementController; // Reference to the PlanePlacementController
+    public ARObjectPlacer objectPlacer; // Reference to the ARObjectPlacer
 
     private ARPlane selectedPlane; // Store the currently selected AR plane
 
@@ -68,12 +68,12 @@ public class PlaneSelectionController : MonoBehaviour
         selectedPlane = plane;
         selectedPlane.gameObject.SetActive(true); // Ensure the selected plane is active
 
-        // Start the PlanePlacementController and place the Game prefab
-        if (placementController != null)
+        // Start the ARObjectPlacer and place the object
+        if (objectPlacer != null)
         {
-            placementController.enabled = true;
-            placementController.PlaceGameOnPlane(selectedPlane);
-            Debug.Log("PlanePlacementController enabled and Game placed on plane");
+            objectPlacer.enabled = true;
+            objectPlacer.PlaceObjectOnPlane(selectedPlane);
+            Debug.Log("ARObjectPlacer enabled and object placed on plane");
         }
 
         // Disable the ARPlaneManager and this PlaneSelectionController script

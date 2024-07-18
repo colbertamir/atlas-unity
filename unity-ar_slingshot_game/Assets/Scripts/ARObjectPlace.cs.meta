@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3a46be15a8cc78e4e9532ec50c15df5f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gamePrefab: {fileID: 8058126561757520781, guid: 248508205c125de48ae2ee593dc0d6b5, type: 3}
+  - targetPrefab: {fileID: 2552638027563987212, guid: c1a99f2740b9be143bbfc1e979f9c101, type: 3}
+  - startButtonPrefab: {fileID: 1829108430479636721, guid: f8abe1ad29cfd874582483b207803508, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
