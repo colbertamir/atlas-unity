@@ -21,7 +21,7 @@ public class ARObjectPlacer : MonoBehaviour
 
     void Update()
     {
-        // This script should only be active when we want to place objects
+        // This script should only be active when we want to place stuff
     }
 
     public void PlaceObjectOnPlane(ARPlane plane)
