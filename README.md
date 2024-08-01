@@ -1,5 +1,5 @@
 # UNITY
 
-![Image](images/SC for Unity.png)
+![Image](images/SCforUnity.png)
 
 ## Amir Colbert
