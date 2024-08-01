@@ -2,7 +2,7 @@
 
 ## Amir Colbert
 
-Hello! My name is Amir Colbert and I am an aspiring AR/VR Software engineer! I love video gmaes and I have a passion for creating them. Some of my favorite games include Minecraft, Dead Cells, and DOOM Slayer!
+Hello! My name is Amir Colbert and I am an aspiring AR/VR Software engineer! I love video gmaes and I have a passion for creating them. Some of my favorite games include Minecraft, Dead Cells, and DOOM Slayer! I have been studying C# at ATLAS School in Tulsa Oklahoma and have really honed in my skills with the Unity software, I really enjoy it!
 
 ![Image](images/SCforUnity.png)
 
